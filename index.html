@@ -167,11 +167,13 @@
                 </div>
                 <div class="contact-form">
                     <h3>Send Us a Message</h3>
-                    <form>
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <input type="text" placeholder="Subject">
-                        <textarea rows="5" placeholder="Your Message" required></textarea>
+                    <form action="https://formspree.io/f/jacob@komconsulting.com" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="subject" placeholder="Subject">
+                        <textarea rows="5" name="message" placeholder="Your Message" required></textarea>
+                        <input type="hidden" name="_subject" value="New Contact Form Submission - WA Tax Desk">
+                        <input type="hidden" name="_next" value="https://jjsupreme7.github.io/WashingtonTaxDesk/#contact">
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
