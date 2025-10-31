@@ -21,6 +21,7 @@
                 <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#agents">Agents</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -76,6 +77,41 @@
                     <div class="service-icon">⚖️</div>
                     <h3>Tax Dispute Resolution</h3>
                     <p>Skilled representation in appeals, negotiations, and resolution of tax disputes with Washington DOR.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agents Section -->
+    <section id="agents" class="agents">
+        <div class="container">
+            <h2 class="section-title">Our AI Agents</h2>
+            <div class="agents-grid">
+                <div class="agent-card">
+                    <h3>Loki</h3>
+                    <span class="agent-type">Specialty: WA State Tax Compliance & Guidance</span>
+                    <p>Get instant answers about Washington State sales tax, B&O tax, and compliance requirements. This agent is trained on current DOR regulations and can help with filing questions.</p>
+                    <button class="btn btn-primary" onclick="openAgent1()">Chat Now</button>
+                    <!-- Embedded Chat for Agent 1 -->
+                    <div id="agent1-chat-container" style="display:none; margin-top: 1rem;">
+                        <div id="customgpt_chat"></div>
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <h3>Iris</h3>
+                    <span class="agent-type">Specialty: Strategic Tax Planning</span>
+                    <p>Discuss tax planning strategies, deduction optimization, and long-term tax minimization approaches for your Washington business.</p>
+                    <button class="btn btn-primary" onclick="openAgent2()">Chat Now</button>
+                    <!-- Embedded Chat for Agent 2 -->
+                    <div id="agent2-chat-container" style="display:none; margin-top: 1rem;">
+                        <div id="customgpt_chat2"></div>
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <h3>Audit Support Agent</h3>
+                    <span class="agent-type">Specialty: Tax Audits & Disputes</span>
+                    <p>Get guidance on preparing for audits, responding to DOR inquiries, and understanding your rights during tax disputes.</p>
+                    <button class="btn btn-primary" onclick="openAgent3()">Chat Now</button>
                 </div>
             </div>
         </div>
@@ -150,7 +186,7 @@
         </div>
     </footer>
 
-    <!-- CustomGPT Chatbot Script -->
+    <!-- CustomGPT Chatbot Script - Default Widget -->
     <script defer src="https://cdn.customgpt.ai/js/chat.js"></script>
     <script defer>
         (function(){
@@ -162,6 +198,46 @@
             }
             document.readyState === 'complete' ? init() : window.addEventListener('load', init);
         })();
+    </script>
+
+    <!-- Agent 1: Washington Tax Expert - Embedded Chat -->
+    <script src="https://cdn.customgpt.ai/js/embed.js" defer div_id="customgpt_chat" p_id="79320" p_key="29f3c8bdd00af5c8da1669bb708c1957"></script>
+
+    <!-- Agent 2: Tax Planning Specialist - Embedded Chat -->
+    <script src="https://cdn.customgpt.ai/js/embed.js" defer div_id="customgpt_chat2" p_id="67834" p_key="bd904c0363ab4df572406b449c62044c"></script>
+
+    <!-- Agent Functions -->
+    <script>
+        // Agent 1: Toggle embedded chat display
+        function openAgent1() {
+            var chatContainer = document.getElementById('agent1-chat-container');
+            if (chatContainer.style.display === 'none') {
+                chatContainer.style.display = 'block';
+                // Scroll to the chat
+                chatContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                chatContainer.style.display = 'none';
+            }
+        }
+
+        // Agent 2: Toggle embedded chat display
+        function openAgent2() {
+            var chatContainer = document.getElementById('agent2-chat-container');
+            if (chatContainer.style.display === 'none') {
+                chatContainer.style.display = 'block';
+                // Scroll to the chat
+                chatContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                chatContainer.style.display = 'none';
+            }
+        }
+
+        // Agent 3: Opens main chatbot widget
+        function openAgent3() {
+            if (window.CustomGPT) {
+                window.CustomGPT.open();
+            }
+        }
     </script>
 </body>
 </html>
